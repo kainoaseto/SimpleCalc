@@ -1,37 +1,28 @@
-#include "EGrammer.h"
+#include "pch.h"
+#include "CGrammer.h"
+#include "CScanner.h"
 
-int main(int argc, char *argv[]) 
+/*
+	While using mixed C++/C is less efficient than pure C code or pure well maintained C++ code...
+	It is more readable and easier to understand in this program's context which is meant to be
+	an example more than anything.
+*/
+
+int main(int argc, char *argv[])
 {
-	char* EGrammerTokenNames[] = {
-		"EOFSY",
-		"ADDOP",
-		"SUBOP",
-		"MULOP",
-		"DIVOP",
-		"LPAREN",
-		"RPAREN",
-		"NUMCONST",
-		"ID",
-		"READSY",
-		"WRITESY",
-		"ASSIGNOP"
-	};
-	int tokens = 1;
+	CScanner scanner;
 
-	if (argc > 1 && (!yylexopen(argv[1])))
+	if (argc > 1 && (!scanner.OpenFile(argv[1])))
 	{
 		cout << "Error: Cannot open input file " << argv[1] << endl;
 		exit(1);
 	}
 
 	int token;
-	while ((token = yylex()) != EOFSY)
-	{
-		tokens++;
-		cout << "tok = " << setw(2) << setfill('0')  << token << " " << EGrammerTokenNames[token] <<  " (" << yytext << ")" << endl;
-	}
+	do {
+		token = scanner.GetToken();
+		cout << "tok = " << setw(2) << setfill('0') << token << " " << TokenNames[token] << " (" << scanner.GetTokenChar() << ")" << endl;
+	} while ((token) != EOFSY);
 
-	cout << "tok = " << setw(2) << setfill('0') << token << " " << EGrammerTokenNames[token] << " (" << yytext << ")" << endl;
-
-	cout << "Number of tokens: " << tokens << endl;
+	cout << "Number of tokens: " << scanner.GetTokenCount() << endl;
 }

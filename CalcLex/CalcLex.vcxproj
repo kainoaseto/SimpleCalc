@@ -142,14 +142,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ELexer.cpp" />
-    <ClCompile Include="Main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="EGrammer.h" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="t1.calc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CGrammer.h" />
+    <ClInclude Include="CScanner.h" />
+    <ClInclude Include="pch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CScanner.cpp" />
+    <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

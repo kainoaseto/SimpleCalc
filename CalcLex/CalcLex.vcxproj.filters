@@ -14,21 +14,27 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ELexer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <None Include="t1.calc">
+      <Filter>Resources</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EGrammer.h">
+    <ClInclude Include="CGrammer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CScanner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="t1.calc">
-      <Filter>Resources</Filter>
-    </None>
+    <ClCompile Include="CScanner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
