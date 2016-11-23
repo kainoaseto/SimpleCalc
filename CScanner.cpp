@@ -4,6 +4,7 @@
 CScanner::CScanner()
 {
 	yytextpos = 0;
+	tokens = 0;
 }
 
 bool CScanner::OpenFile(const char* filename)
@@ -64,7 +65,6 @@ int CScanner::GetToken()
         {
 			return EOFSY;
 		}
-
 		append_yytext(c);
         tokens++;
 
@@ -89,19 +89,23 @@ int CScanner::GetToken()
 		}
 		if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		{
+            // Above we assigned this character but if we are here then we need to make sure its
+            // case independent by setting it to be uppercase
+            yytext[yytextpos-1] = (char)toupper(c);
+
 			int cc = file_in.get();
 
 			while ((cc >= 'a' && cc <= 'z') || (cc >= 'A' && cc <= 'Z'))
             {
-				append_yytext(cc);
+				append_yytext(toupper(cc));
 				cc = file_in.get();
 			}
 
-			if (strcmp(yytext, "read") == 0)
+			if (strcmp(yytext, "READ") == 0)
 			{
 				return READSY;
 			}
-			if (strcmp(yytext, "write") == 0)
+			if (strcmp(yytext, "WRITE") == 0)
 			{
 				return WRITESY;
 			}
@@ -115,4 +119,15 @@ int CScanner::GetToken()
 	}
 	// Should never get here
 	return EOFSY;
+}
+
+void CScanner::PrintTokens()
+{
+    int token;
+    do {
+        token = GetToken();
+        cout << "tok = " << setw(2) << setfill('0') << token << " " << TokenNames[token] << " (" << GetTokenChar() << ")" << endl;
+    } while ((token) != EOFSY);
+
+    cout << "Number of tokens: " << GetTokenCount() << endl;
 }

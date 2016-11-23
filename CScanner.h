@@ -18,6 +18,8 @@ public:
     char* GetTokenChar();
     unsigned int GetTokenCount();
 
+    void PrintTokens();
+
 private:
     unsigned int tokens;
     char yytext[YYTEXT_MAX];
