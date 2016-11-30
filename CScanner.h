@@ -1,8 +1,16 @@
+/*
+ * Kainoa Seto
+ * Scanner headerfile with helper functions and the calls to scan a source file for
+ * tokens to load in and process. Some hard limits set but this works well for the simple
+ * language.
+ * 11-29-16
+ */
+
 #ifndef __CSCANNER_H_
 #define __CSCANNER_H_
 
 #include "pch.h"
-#include "CGrammer.h"
+#include "CGrammar.h"
 
 #define YYTEXT_MAX 100
 

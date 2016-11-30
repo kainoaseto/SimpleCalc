@@ -1,3 +1,10 @@
+/*
+ * Kainoa Seto
+ * Grammar for the simple calculator language along with the recursive descent function usage
+ * and the Token Symbols
+ * 11-29-16
+ */
+
 #ifndef __CGRAMMER_H__
 #define __CGRAMMER_H__
 
@@ -5,7 +12,7 @@
 #include "pch.h"
 
 
-/* Grammer CFG rules
+/* Grammar CFG rules
  *
  * program()        -> stmt_list() EOFSY
  * stmt_list()      -> stmt() stmt_list()

@@ -1,3 +1,11 @@
+/*
+ * Kainoa Seto
+ * The recursive descent parser and interpreter as certain tokens are reached. This makes
+ * direct calls to the Scanner instance that is passed into the constructor and then gets
+ * all tokens from the src file and decides what to do when it receives certain tokens based
+ * on the grammer defined in CGrammer.h
+ * 11-29-16
+ */
 #include "CParser.h"
 
 CParser::CParser(CScanner* scanner)

@@ -1,3 +1,13 @@
+/*
+ * Kainoa Seto
+ * The Parser and interpreter for the code but since this class mainly holds Parser calls
+ * I named it after those. The custom stack defined below allows for data to be moved
+ * between the functions in an easier to understand way then passing by variables. However
+ * it may be more efficient to eventually implement variable passing and do away with the
+ * custom stack.
+ * 11-29-16
+ */
+
 #ifndef __CPARSER_H__
 #define __CPARSER_H__
 

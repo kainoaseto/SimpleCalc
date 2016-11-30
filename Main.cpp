@@ -1,3 +1,10 @@
+/*
+ * SimpleCalc
+ * Kainoa Seto
+ * Simple calculator language Scanner, Parser, and Interpretor using C++/C
+ * 11-29-16
+ */
+
 #include "pch.h"
 #include "CScanner.h"
 #include "CParser.h"

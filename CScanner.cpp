@@ -1,3 +1,10 @@
+/*
+ * Kainoa Seto
+ * The sourcecode the scanner. Mostly implemented in C code for efficiency it allows for
+ * tokens to be processed one at a time while also receiving the token char if neccessary.
+ * 11-29-16
+ */
+
 #include "pch.h"
 #include "CScanner.h"
 
@@ -21,10 +28,12 @@ void CScanner::clear_yytext()
 
 void CScanner::append_yytext(int c)
 {
+    // Ignore char
 	if (yytextpos >= YYTEXT_MAX - 1)
-		return; //ignore char
+		return;
 	yytext[yytextpos++] = (char)c;
-	yytext[yytextpos] = 0; // null sentinel at end
+    // Null sentinel at end
+	yytext[yytextpos] = 0;
 }
 
 char* CScanner::GetTokenChar()
@@ -123,7 +132,6 @@ int CScanner::GetToken()
             file_in.unget();
 			return ID;
 		}
-
 
 		// Just return the undefined input
 		return c;
