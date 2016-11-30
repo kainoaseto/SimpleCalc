@@ -1,5 +1,5 @@
 /*
- * SimpleCalc
+ * CalcInterp
  * Kainoa Seto
  * Simple calculator language Scanner, Parser, and Interpretor using C++/C
  * 11-29-16
