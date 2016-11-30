@@ -115,7 +115,13 @@ int CScanner::GetToken()
 
 			int cc = file_in.get();
 
-			while ((cc >= 'a' && cc <= 'z') || (cc >= 'A' && cc <= 'Z') || (cc == '_'))
+			while 
+			( 
+				(cc >= 'a' && cc <= 'z') || 
+				(cc >= 'A' && cc <= 'Z') || 
+				(cc == '_') || 
+				(cc >= '0' && cc <= '9') 
+			)
             {
 				append_yytext(toupper(cc));
 				cc = file_in.get();
@@ -133,7 +139,7 @@ int CScanner::GetToken()
 			return ID;
 		}
 
-		// Just return the undefined input
+		// Just return the undefined input so the user knows there is an error in the code
 		return c;
 	}
 	// Should never get here

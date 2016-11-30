@@ -30,7 +30,7 @@ void CParser::match(int expectedToken)
     }
     else
     {
-        // Any syntax error we will exit
+        // Exit on any unexpected token or syntax errors, don't just skip over them
         cout << "Token " << TokenNames[expectedToken] << "(" << expectedToken << ")"
              << " expected, but instead encountered "
              << scanner->GetTokenChar() << endl;

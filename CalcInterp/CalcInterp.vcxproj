@@ -144,6 +144,7 @@
   <ItemGroup>
     <None Include="t1.calc" />
     <None Include="t2.calc" />
+    <None Include="terror.calc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CGrammar.h" />
