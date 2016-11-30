@@ -106,7 +106,7 @@ int CScanner::GetToken()
 
 			int cc = file_in.get();
 
-			while ((cc >= 'a' && cc <= 'z') || (cc >= 'A' && cc <= 'Z'))
+			while ((cc >= 'a' && cc <= 'z') || (cc >= 'A' && cc <= 'Z') || (cc == '_'))
             {
 				append_yytext(toupper(cc));
 				cc = file_in.get();
