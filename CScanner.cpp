@@ -81,8 +81,19 @@ int CScanner::GetToken()
 		if (c == ')') return RPAREN;
 		if (c >= '0' && c <= '9' )
 		{
+            bool decimalFound = false;
 			while ( ( (c = file_in.get()) >= '0' && c <= '9') || (c == '.') )
-				append_yytext(c);
+            {
+                // Ignore all other numbers after a second decimal point is found
+                if (c == '.' && decimalFound)
+                    return NUMCONST;
+                else if (c == '.') {
+                    decimalFound = true;
+                }
+
+                append_yytext(c);
+            }
+
 
 			file_in.unget();
 			return NUMCONST;
